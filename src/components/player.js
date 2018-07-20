@@ -9,24 +9,35 @@ class Player extends Component {
         this.nameDiv.focus();
       }
 
+    observeBoundaries(prevPosition, newPosition){
+         if ((newPosition[0] >= 0 && newPosition[0] <= 1160) &&
+               (newPosition[1] >= 0 && newPosition[1] <= 560)){
+               return newPosition 
+        } else {
+        return prevPosition
+        }
+    }
+
      getNewPosition = (direction) => {
         const playerSize = 40;
         const prevPosition =  this.props.position//where my issue is I want to grab props
         switch(direction){
             case 'LEFT':
-                return [prevPosition[0] - playerSize, prevPosition[1]]
+                return this.observeBoundaries(prevPosition,[prevPosition[0] - playerSize, prevPosition[1]])
             case 'RIGHT':
-                return [prevPosition[0] + playerSize, prevPosition[1]]
+                return this.observeBoundaries(prevPosition,[prevPosition[0] + playerSize, prevPosition[1]])
             case 'UP':
-                return [prevPosition[0], prevPosition[1] - playerSize]
+                return this.observeBoundaries(prevPosition,[prevPosition[0], prevPosition[1] - playerSize])
             case 'DOWN':
-                return [prevPosition[0], prevPosition[1] + playerSize]
+                return this.observeBoundaries(prevPosition,[prevPosition[0], prevPosition[1] + playerSize])
+            default:
+                console.log('default')
         }
     }
 
     handleKeyDown = (e) => {
         e.preventDefault()
-        console.log('keydown')
+        const prevPosition =  this.props.position
         switch(e.keyCode){
             case 37:  //left arrow
                 return this.props.makeMove(this.getNewPosition('LEFT'))
@@ -58,7 +69,7 @@ class Player extends Component {
                 }}
                 onKeyDown={this.handleKeyDown}
                 tabIndex='0'
-                ref={(div) => { this.nameDiv = div; }} 
+                ref={(div) => { this.nameDiv = div}} 
                 />
     );
   }
