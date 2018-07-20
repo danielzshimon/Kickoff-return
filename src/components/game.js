@@ -8,11 +8,12 @@ class Game extends Component {
     return (
         <div style={{
             position: 'relative',
-            width: '1000px',
-            height: '500px',
+            width: '1200px',
+            height: '600px',
             margin: '20px auto', 
             border: '4px solid pink',
-        }}>
+        }}
+        >
             <Background />
             <Player />
         </div>
