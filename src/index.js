@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import playerReducer from './reducers/index'
 
+
 const rootReducer = combineReducers({
     player: playerReducer
 })
@@ -19,3 +20,4 @@ ReactDOM.render(
     document.getElementById("root")
 );
 
+export default store;

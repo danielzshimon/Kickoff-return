@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 
 
 class Background extends Component {
+  
+  
+  
   render() {
     return (
         <div style={{
@@ -11,7 +14,7 @@ class Background extends Component {
             left: '0px',
             width: '1000px',
             height: '500px',
-            backgroundColor: 'black',
+            backgroundColor: 'green',
             
         }}/>
     );
