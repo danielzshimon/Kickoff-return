@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 import Player from './player'
 import Background from './background'
+import Obstacles from './obstacles';
 
 class Game extends Component {
-  render() {
+ 
+    // if player and obstacles hit eac other stop the game 
+
+    //figure out scoring
+
+    //
+
+    render() {
     return (
         <div style={{
             position: 'relative',
@@ -16,10 +24,17 @@ class Game extends Component {
         >
             <Background />
             <Player />
+            <Obstacles />
         </div>
     );
   }
 }
 
+function mapStateToProps(state) {
+    return {
+        ...state.obstacles,
+        ...state.player
+    }
+}
 
 export default Game;

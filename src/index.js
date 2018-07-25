@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
-import playerReducer from './reducers/index'
+import { playerReducer, backgroundReducer, obstacleReducer, gameReducer } from './reducers/index'
 
 
 const rootReducer = combineReducers({
-    player: playerReducer
+    player: playerReducer,
+    background: backgroundReducer,
+    obstacles: obstacleReducer,
+    game: gameReducer
 })
 
 const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

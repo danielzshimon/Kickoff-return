@@ -7,9 +7,13 @@ class Player extends Component {
   
     componentDidMount(){
         this.nameDiv.focus();
-      }
+    }
 
-    observeBoundaries(prevPosition, newPosition){
+    componentDidUpdate(){
+        this.nameDiv.focus();
+    }
+
+    boundaries(prevPosition, newPosition){
          if ((newPosition[0] >= 0 && newPosition[0] <= 1160) &&
                (newPosition[1] >= 0 && newPosition[1] <= 560)){
                return newPosition 
@@ -23,13 +27,13 @@ class Player extends Component {
         const prevPosition =  this.props.position//where my issue is I want to grab props
         switch(direction){
             case 'LEFT':
-                return this.observeBoundaries(prevPosition,[prevPosition[0] - playerSize, prevPosition[1]])
+                return this.boundaries(prevPosition,[prevPosition[0] - playerSize, prevPosition[1]])
             case 'RIGHT':
-                return this.observeBoundaries(prevPosition,[prevPosition[0] + playerSize, prevPosition[1]])
+                return this.boundaries(prevPosition,[prevPosition[0] + playerSize, prevPosition[1]])
             case 'UP':
-                return this.observeBoundaries(prevPosition,[prevPosition[0], prevPosition[1] - playerSize])
+                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] - playerSize])
             case 'DOWN':
-                return this.observeBoundaries(prevPosition,[prevPosition[0], prevPosition[1] + playerSize])
+                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] + playerSize])
             default:
                 console.log('default')
         }
@@ -37,7 +41,6 @@ class Player extends Component {
 
     handleKeyDown = (e) => {
         e.preventDefault()
-        const prevPosition =  this.props.position
         switch(e.keyCode){
             case 37:  //left arrow
                 return this.props.makeMove(this.getNewPosition('LEFT'))
@@ -56,6 +59,8 @@ class Player extends Component {
         
         }
     }
+
+    //creat lose situation where if player = same spot as obsticle board stope and player cant move anymore
   
     render() {
         return (
