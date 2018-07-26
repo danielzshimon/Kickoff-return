@@ -7,9 +7,12 @@ import grass_2 from '../images/grass_2.png'
 class Background extends Component {
  
   changeY = () => {
-    setInterval(() => {
+    if (this.props.lose === false){setInterval(() => {
       const previousPos = this.props.yPosition
       this.props.movingBackground(previousPos)}, 50)
+    } else {
+      clearInterval()
+    }
   }
 
 
@@ -23,6 +26,7 @@ class Background extends Component {
     
     return (
         <div style={{
+            
             position: 'relative',
             top: '0px',
             left: '0px',
@@ -39,7 +43,8 @@ class Background extends Component {
 function mapStateToProps(state) {
  
   return {
-      ...state.background
+      ...state.background,
+      ...state.game
   }
 }
 

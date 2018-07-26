@@ -11,6 +11,7 @@ class Player extends Component {
 
     componentDidUpdate(){
         this.nameDiv.focus();
+        
     }
 
     boundaries(prevPosition, newPosition){
@@ -23,17 +24,17 @@ class Player extends Component {
     }
 
      getNewPosition = (direction) => {
-        const playerSize = 40;
+        // const playerSize = 40;
         const prevPosition =  this.props.position//where my issue is I want to grab props
         switch(direction){
             case 'LEFT':
-                return this.boundaries(prevPosition,[prevPosition[0] - playerSize, prevPosition[1]])
+                return this.boundaries(prevPosition,[prevPosition[0] - 10, prevPosition[1]])
             case 'RIGHT':
-                return this.boundaries(prevPosition,[prevPosition[0] + playerSize, prevPosition[1]])
+                return this.boundaries(prevPosition,[prevPosition[0] + 10, prevPosition[1]])
             case 'UP':
-                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] - playerSize])
+                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] - 10])
             case 'DOWN':
-                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] + playerSize])
+                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] + 10])
             default:
                 console.log('default')
         }
@@ -69,8 +70,11 @@ class Player extends Component {
                 top: this.props.position[1],
                 left: this.props.position[0],
                 background: 'blue',
-                width: '40px',
-                height: '40px'
+                width: '39px',
+                height: '39px',
+                border: '1px solid white',
+                outline: 'none',
+                transition: 'all 0.1s ease'
                 }}
                 onKeyDown={this.handleKeyDown}
                 tabIndex='0'
@@ -84,7 +88,8 @@ class Player extends Component {
 
 function mapStateToProps(state) {
     return {
-        ...state.player
+        ...state.player,
+        ...state.background
     }
 }
 

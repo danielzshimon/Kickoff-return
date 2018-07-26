@@ -10,11 +10,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
-        
-          <Game />
-        
-
+        <h1 align='center'> Football Game </h1>
+        <Game />
       </div>
     );
   }

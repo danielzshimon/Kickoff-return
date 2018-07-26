@@ -44,7 +44,9 @@ export const backgroundReducer = (state = initialBackgroundState, action ) => {
 
 
 const initialObstacleState = {
-    obstaclesArr: []
+    obstaclesArr: [],
+    obstacleTop: 0,
+    obstacleSpeed: 5
 }; 
 
 export const obstacleReducer = (state = initialObstacleState, action ) => {
@@ -52,6 +54,11 @@ export const obstacleReducer = (state = initialObstacleState, action ) => {
       case 'ADD_OBSTACLES':
         return { ...state,
             obstaclesArr: [...state.obstaclesArr, ...action.payload.obstaclesArr]
+        }
+
+        case 'MOVE_OBSTACLES':
+        return { 
+            ...action.payload
         }
 
 
