@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { addObstaclesToState, moveObstacles } from '../actions/index'
+import { addObstaclesToState } from '../actions/index'
 
 
 
@@ -17,7 +17,8 @@ class Obstacles extends Component {
     generateRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
     createObstacle = () => {
-        const obstacle = <div style={{position: 'absolute', 
+        const obstacle = <div  
+        style={{position: 'absolute', 
         top: this.props.obstacleTop, 
         left: this.generateRandomNumber(0, 1160), 
         background: 'red', 
@@ -42,7 +43,7 @@ class Obstacles extends Component {
     // />
 
 
-     createMultipleObstacles = (times) => {
+    createMultipleObstacles = (times) => {
         let arr = []
         for(let i = 1; i <= times; i++){
             arr.push(i)
@@ -51,11 +52,11 @@ class Obstacles extends Component {
         
     }
 
-    changeTopOfObstacle = () => {
-        setInterval(() => {
-            const previousPos = this.props.obstacleTop
-            this.props.moveObstacles(previousPos)}, 50)
-    }
+    // changeTopOfObstacle = () => {
+    //     setInterval(() => {
+    //         const previousPos = this.props.obstacleTop
+    //         this.props.moveObstacles(previousPos)}, 50)
+    // }
     //     const previousPos = document.getElementById('obstacle').style.top; 
     //     setInterval(() => {
          
@@ -76,7 +77,7 @@ class Obstacles extends Component {
     }
 
     componentDidUpdate(){
-        // this.changeTopOfObstacle()
+        
     }
 
     
@@ -106,4 +107,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps, { addObstaclesToState, moveObstacles })(Obstacles);
+export default connect(mapStateToProps, { addObstaclesToState })(Obstacles);

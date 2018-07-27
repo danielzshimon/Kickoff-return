@@ -29,14 +29,14 @@ export function movingBackground(yPosition) {
      }
  }
 
- export function moveObstacles(obstacleTop) {
-    return {
-         type: MOVE_OBSTACLES,
-         payload: {
-            obstacleTop: ( obstacleTop + 5)
-         }
-     }
- } 
+//  export function moveObstacles(obstacleTop) {
+//     return {
+//          type: MOVE_OBSTACLES,
+//          payload: {
+//             obstacleTop: ( obstacleTop + 5)
+//          }
+//      }
+//  } 
 
 //  export function removeObstacles(obstacle) {
 //     return {

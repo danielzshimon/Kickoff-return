@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Player from './player'
 import Background from './background'
-import Obstacles from './obstacles';
+import Row from './row';
 
 class Game extends Component {
  
@@ -58,7 +58,7 @@ class Game extends Component {
         >
             <Background />
             <Player />
-            <Obstacles />
+            <Row />
         </div>
     );
   }

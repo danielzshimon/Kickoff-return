@@ -45,8 +45,7 @@ export const backgroundReducer = (state = initialBackgroundState, action ) => {
 
 const initialObstacleState = {
     obstaclesArr: [],
-    obstacleTop: 0,
-    obstacleSpeed: 5
+    obstacleTop: 0
 }; 
 
 export const obstacleReducer = (state = initialObstacleState, action ) => {
