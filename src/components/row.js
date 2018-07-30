@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { addObstaclesToState } from '../actions/index'
 import Obstacles from './obstacles'
+
 
 class Row extends Component {
 
+    constructor(){
+        super()
+
+        this.state = {
+            obstacles: []
+        }
+    }
+    //where to store the obstacles
     //have rows dictate when the obstacles are created 
     //create a lot of rows and have them move based on an amount of time
     //create the rows in the beginning of the game 
@@ -14,49 +24,55 @@ class Row extends Component {
     //all we need to change is the y of this component same way the background work
     //what will state have?
     //hope for the best
-    createRow = () => {
-        const row = <div style={{
-            position: 'absolute', 
-        
-        // top: ,
-        height: '40px', 
-        
-        }}
-        />
+   
+    generateRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-        return row
-    }
 
-    createMultipleRows = (times) => {
+    createObstacle = () => {
+        return <Obstacles />
+        }
+
+    createMultipleObstacles = (times) => {
         let arr = []
         for(let i = 1; i <= times; i++){
             arr.push(i)
         }
-        return arr.map(() => this.createRow());
+        return arr.map(() => this.createObstacle());
         
     }
+    
 
-    render(){
+    componentDidMount(){
+        this.setState({obstacles: this.createMultipleObstacles(this.generateRandomNumber(1, 20))})
+    }
+
+    // {setInterval(() => {
+    //     const previousPos = this.props.yPosition
+    //     this.props.movingBackground(previousPos)}, 50)
+
+    render(){ 
+        
         return(
             <div style={{
                 position: 'absolute',
-                top:this.props.yPosition,
-                
-                
+                top:0, 
+                height: '40px'
             }}
             >
-               <Obstacles /> 
+           {this.state.obstacles.map( obstacle => {return obstacle})}
+           
+
             </div>
         )
     }
 
 }
 
-function mapStateToProps(state) {
-    return {
+// function mapStateToProps(state) {
+//     return {
         
-        ...state.background
-    }
-}
+//         ...state.background
+//     }
+// }
 
-export default connect(mapStateToProps)(Row);
+export default connect(null, { addObstaclesToState })(Row);

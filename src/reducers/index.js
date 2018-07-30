@@ -44,21 +44,24 @@ export const backgroundReducer = (state = initialBackgroundState, action ) => {
 
 
 const initialObstacleState = {
-    obstaclesArr: [],
-    obstacleTop: 0
+    obstaclesRowArr: []
+    
 }; 
 
 export const obstacleReducer = (state = initialObstacleState, action ) => {
     switch (action.type) {
       case 'ADD_OBSTACLES':
         return { ...state,
-            obstaclesArr: [...state.obstaclesArr, ...action.payload.obstaclesArr]
+            obstaclesRowArr: [...state.obstaclesRowArr, ...action.payload.obstaclesRowArr]
         }
 
-        case 'MOVE_OBSTACLES':
-        return { 
-            ...action.payload
+        case 'REMOVE_OBSTACLES':
+        console.log('hi')
+        return { ...state,
+            obstaclesRowArr: [...state.obstaclesRowArr.slice(1)]
+
         }
+
 
 
       default:

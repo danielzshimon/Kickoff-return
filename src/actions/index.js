@@ -1,4 +1,4 @@
-import { MOVE_PLAYER, MOVE_BACKGROUND, ADD_OBSTACLES, MOVE_OBSTACLES, LOSE_GAME } from './types'
+import { MOVE_PLAYER, MOVE_BACKGROUND, ADD_OBSTACLES, LOSE_GAME, REMOVE_OBSTACLES } from './types'
 
 export function makeMove(position) {
    return {
@@ -20,12 +20,18 @@ export function movingBackground(yPosition) {
 
 
 
- export function addObstaclesToState(newObstacles) {
+ export function addObstaclesToState(newRowsWithObstacles) {
     return {
          type: ADD_OBSTACLES,
          payload: {
-            obstaclesArr: newObstacles
+            obstaclesRowArr: newRowsWithObstacles
          }
+     }
+ }
+
+ export function removeObstaclesFromState() {
+    return {
+         type: REMOVE_OBSTACLES
      }
  }
 

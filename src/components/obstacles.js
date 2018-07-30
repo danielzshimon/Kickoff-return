@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { addObstaclesToState } from '../actions/index'
+
+
 
 
 
@@ -73,7 +73,7 @@ class Obstacles extends Component {
     //top: 600 is out of the area
   
     componentDidMount(){
-        this.props.addObstaclesToState(this.createMultipleObstacles(this.generateRandomNumber(1, 20)))
+        // this.createMultipleObstacles(this.generateRandomNumber(1, 20))
     }
 
     componentDidUpdate(){
@@ -85,26 +85,23 @@ class Obstacles extends Component {
     render() {
         
         return (
-        <div>
-            
-            {this.props.obstaclesArr.map((obstacle) => {
-                
-              return obstacle
-            })}
-                
-        </div>
+            <div  
+            style={{position: 'absolute', 
+            top: this.props.obstacleTop, 
+            left: this.generateRandomNumber(0, 1160), 
+            background: 'red', 
+            width: '39px', 
+            height: '39px', 
+            border: '1px solid white'
+            }}
+            />
     );
   }
 }
 
 
 
-function mapStateToProps(state) {
-    return {
-        ...state.obstacles,
-        
-    }
-}
 
 
-export default connect(mapStateToProps, { addObstaclesToState })(Obstacles);
+
+export default Obstacles;

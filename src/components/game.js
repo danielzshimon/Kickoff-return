@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { addObstaclesToState, removeObstaclesFromState } from '../actions/index'
 import Player from './player'
 import Background from './background'
 import Row from './row';
@@ -10,7 +11,20 @@ class Game extends Component {
 
     //figure out scoring
 
-    
+    createRow = () => {
+        return <Row /> 
+
+        
+    }
+
+    // createMultipleRows = (times) => {
+    //     let arr = []
+    //     for(let i = 1; i <= times; i++){
+    //         arr.push(i)
+    //     }
+    //     return arr.map(() => this.createRow());
+        
+    // }    
 
     crashWith = (obstacle) => {
         let myleft = this.props.position[0];
@@ -31,21 +45,17 @@ class Game extends Component {
         return crash;
     }
 
-    // for (i = 0; i < myObstacles.length; i += 1) {
-    //     if (myGamePiece.crashWith(myObstacles[i])) {
-    //         myGameArea.stop();
-    //         return;
-    //     } 
+    componentDidMount(){
+        setInterval(() => {this.props.addObstaclesToState([this.createRow()])}, 3000);
+        // setTimeout(() => setInterval(() => this.props.removeObstaclesFromState(), 3500), 6000)
+    }
 
-    // loseGame = () => {
-    //     if (this.props.position[0] === this.props.obstaclesArr.forEach(obstacle => {obstacle.props.style.top}) && 
-    //     this.props.position[1] === this.props.obstaclesArr.forEach(obstacle => {obstacle.props.style.left})){
-    //         alert("You lose")
-    //         }
-    //     }
-
+     // {setInterval(() => {
+    //     const previousPos = this.props.yPosition
+    //     this.props.movingBackground(previousPos)}, 50)
+     
     render() {
-        console.log()
+        
     return (
         <div style={{
             
@@ -58,7 +68,9 @@ class Game extends Component {
         >
             <Background />
             <Player />
-            <Row />
+            {this.props.obstaclesRowArr.map((row) => {
+                
+                return row})}
         </div>
     );
   }
@@ -71,4 +83,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Game);
+export default connect(mapStateToProps,{addObstaclesToState, removeObstaclesFromState})(Game);
