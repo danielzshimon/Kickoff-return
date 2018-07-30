@@ -11,10 +11,9 @@ class Game extends Component {
 
     //figure out scoring
 
-    createRow = () => {
-        return <Row /> 
+    createRow = (rowID) => {
+        return <Row key={rowID}/> 
 
-        
     }
 
     // createMultipleRows = (times) => {
@@ -46,16 +45,21 @@ class Game extends Component {
     }
 
     componentDidMount(){
-        setInterval(() => {this.props.addObstaclesToState([this.createRow()])}, 3000);
-        // setTimeout(() => setInterval(() => this.props.removeObstaclesFromState(), 3500), 6000)
+        let rowID = 1
+        setInterval(() => {
+            this.props.addObstaclesToState(this.createRow(rowID))
+            rowID++
+        }, 1500);
+        setTimeout(() => setInterval(() => this.props.removeObstaclesFromState(), 1500), 5700)
     }
+
+
 
      // {setInterval(() => {
     //     const previousPos = this.props.yPosition
     //     this.props.movingBackground(previousPos)}, 50)
      
     render() {
-        
     return (
         <div style={{
             
@@ -68,9 +72,7 @@ class Game extends Component {
         >
             <Background />
             <Player />
-            {this.props.obstaclesRowArr.map((row) => {
-                
-                return row})}
+            {this.props.obstaclesRowArr}
         </div>
     );
   }

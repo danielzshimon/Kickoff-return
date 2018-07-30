@@ -20,11 +20,11 @@ export function movingBackground(yPosition) {
 
 
 
- export function addObstaclesToState(newRowsWithObstacles) {
+ export function addObstaclesToState(newRowWithObstacles) {
     return {
          type: ADD_OBSTACLES,
          payload: {
-            obstaclesRowArr: newRowsWithObstacles
+            row: newRowWithObstacles
          }
      }
  }

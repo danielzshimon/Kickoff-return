@@ -10,7 +10,8 @@ class Row extends Component {
         super()
 
         this.state = {
-            obstacles: []
+            obstacles: [],
+            yIndex: 0
         }
     }
     //where to store the obstacles
@@ -29,7 +30,7 @@ class Row extends Component {
 
 
     createObstacle = () => {
-        return <Obstacles />
+        return {xPosition: this.generateRandomNumber(0, 1160)}
         }
 
     createMultipleObstacles = (times) => {
@@ -43,7 +44,10 @@ class Row extends Component {
     
 
     componentDidMount(){
-        this.setState({obstacles: this.createMultipleObstacles(this.generateRandomNumber(1, 20))})
+        this.setState({obstacles: this.createMultipleObstacles(this.generateRandomNumber(1, 15))});
+        setInterval(() => {this.setState({
+            yIndex: this.state.yIndex + 5
+        })}, 50)
     }
 
     // {setInterval(() => {
@@ -55,11 +59,12 @@ class Row extends Component {
         return(
             <div style={{
                 position: 'absolute',
-                top:0, 
-                height: '40px'
+                top: this.state.yIndex, 
+                height: '40px',
+                transition: 'all 0.01s ease'
             }}
             >
-           {this.state.obstacles.map( obstacle => {return obstacle})}
+           {this.state.obstacles.map( obstacle => {return <Obstacles xPosition={obstacle.xPosition} />})}
            
 
             </div>

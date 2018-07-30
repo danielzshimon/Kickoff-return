@@ -52,14 +52,14 @@ export const obstacleReducer = (state = initialObstacleState, action ) => {
     switch (action.type) {
       case 'ADD_OBSTACLES':
         return { ...state,
-            obstaclesRowArr: [...state.obstaclesRowArr, ...action.payload.obstaclesRowArr]
+            obstaclesRowArr: [...state.obstaclesRowArr, action.payload.row]
         }
 
         case 'REMOVE_OBSTACLES':
-        console.log('hi')
+        let newRows = [...state.obstaclesRowArr]
+        newRows.shift()
         return { ...state,
-            obstaclesRowArr: [...state.obstaclesRowArr.slice(1)]
-
+            obstaclesRowArr: [...newRows]
         }
 
 

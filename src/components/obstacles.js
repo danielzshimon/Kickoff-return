@@ -87,8 +87,7 @@ class Obstacles extends Component {
         return (
             <div  
             style={{position: 'absolute', 
-            top: this.props.obstacleTop, 
-            left: this.generateRandomNumber(0, 1160), 
+            left: this.props.xPosition, 
             background: 'red', 
             width: '39px', 
             height: '39px', 
