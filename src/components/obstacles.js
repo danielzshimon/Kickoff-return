@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-
+import { connect } from 'react-redux'
+import { gameStatus } from '../actions/index'
 
 
 
@@ -19,7 +19,6 @@ class Obstacles extends Component {
     createObstacle = () => {
         const obstacle = <div  
         style={{position: 'absolute', 
-        top: this.props.obstacleTop, 
         left: this.generateRandomNumber(0, 1160), 
         background: 'red', 
         width: '39px', 
@@ -77,13 +76,37 @@ class Obstacles extends Component {
     }
 
     componentDidUpdate(){
-        
     }
 
+    crashWith = () => {
+        let myleft = this.props.position[0];
+        let myright = this.props.position[0] + 39;
+        let mytop = this.props.position[1];
+        let mybottom = this.props.position[1] + 39;
+        let otherleft = this.props.xPosition;
+        let otherright = this.props.xPosition + 39;
+        let othertop = this.props.yPosition;
+        let otherbottom = this.props.yPosition + 39;
+        let crash = true;
+        if ((mybottom >= othertop ) &&
+               (mytop <= otherbottom) &&
+               (myright >= otherleft) &&
+               (myleft <= otherright)) {
+           crash = false;
+        }
+
+        if(crash === false){
+            this.props.gameStatus()
+            console.log('playerleft:', myleft,'obstacleft', otherleft, 'playerright', myright, 'obstacright', otherright,'mytop', mytop,'obstactop', othertop,'mybottom', mybottom,'obstacbottom', otherbottom)
+        }
+    }
+
+    componentDidUpdate(){
+        this.crashWith()
+    }
     
 
     render() {
-        
         return (
             <div  
             style={{position: 'absolute', 
@@ -98,9 +121,14 @@ class Obstacles extends Component {
   }
 }
 
+function mapStateToProps(state) {
+    return {
+        
+        ...state.player
+    }
+}
 
 
 
 
-
-export default Obstacles;
+export default connect(mapStateToProps, { gameStatus })(Obstacles);

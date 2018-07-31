@@ -53,11 +53,8 @@ export function movingBackground(yPosition) {
 //      }
 //  }
 
-export function gameStatus(collision) {
+export function gameStatus() {
     return {
-         type: LOSE_GAME,
-         payload: {
-            lose: true
-         }
+         type: LOSE_GAME
      }
  } 

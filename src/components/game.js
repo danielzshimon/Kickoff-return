@@ -33,7 +33,7 @@ class Game extends Component {
         let otherleft = obstacle.props.style.left;
         let otherright = obstacle.props.style.left + 40;
         let othertop = obstacle.props.style.top;
-        let otherbottom = obstacle.props.style.top - 1 + 40;
+        let otherbottom = obstacle.props.style.top + 40;
         let crash = true;
         if ((mybottom < othertop) ||
                (mytop > otherbottom) ||
@@ -53,11 +53,15 @@ class Game extends Component {
         setTimeout(() => setInterval(() => this.props.removeObstaclesFromState(), 1500), 5700)
     }
 
+    componentDidUpdate(){
+        if (this.props.lose === true){
+            alert('you lose')
+        }
+    }
 
 
-     // {setInterval(() => {
-    //     const previousPos = this.props.yPosition
-    //     this.props.movingBackground(previousPos)}, 50)
+
+     
      
     render() {
     return (
@@ -81,7 +85,8 @@ class Game extends Component {
 function mapStateToProps(state) {
     return {
         ...state.obstacles,
-        ...state.player
+        ...state.player,
+        ...state.game
     }
 }
 

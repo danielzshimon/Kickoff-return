@@ -64,7 +64,7 @@ class Row extends Component {
                 transition: 'all 0.01s ease'
             }}
             >
-           {this.state.obstacles.map( obstacle => {return <Obstacles xPosition={obstacle.xPosition} />})}
+           {this.state.obstacles.map( obstacle => {return <Obstacles xPosition={obstacle.xPosition} yPosition={this.state.yIndex}/>})}
            
 
             </div>
@@ -73,11 +73,11 @@ class Row extends Component {
 
 }
 
-// function mapStateToProps(state) {
-//     return {
+function mapStateToProps(state) {
+    return {
         
-//         ...state.background
-//     }
-// }
+        ...state.player
+    }
+}
 
-export default connect(null, { addObstaclesToState })(Row);
+export default connect(mapStateToProps, { addObstaclesToState })(Row);

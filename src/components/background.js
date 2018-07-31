@@ -7,7 +7,8 @@ import grass_2 from '../images/grass_2.png'
 class Background extends Component {
  
   changeY = () => {
-    if (this.props.lose === false){setInterval(() => {
+    if (this.props.lose === false){
+      setInterval(() => {
       const previousPos = this.props.yPosition
       this.props.movingBackground(previousPos)}, 50)
     } else {

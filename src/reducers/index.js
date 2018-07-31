@@ -79,7 +79,10 @@ const initialGameState = {
 
 export const gameReducer = (state = initialGameState, action ) => {
     switch (action.type) {
-      
+        case 'LOSE_GAME':
+        return { ...state,
+            lose: true
+        }
 
       default:
         return state    
