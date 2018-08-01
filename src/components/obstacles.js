@@ -71,38 +71,32 @@ class Obstacles extends Component {
     //when obstacle are out of the game area or get to the bottom of the game area remove them from them from the array
     //top: 600 is out of the area
   
-    componentDidMount(){
-        // this.createMultipleObstacles(this.generateRandomNumber(1, 20))
-    }
-
-    componentDidUpdate(){
-    }
+    
 
     crashWith = () => {
         let myleft = this.props.position[0];
-        let myright = this.props.position[0] + 39;
+        let myright = this.props.position[0] + 37;
         let mytop = this.props.position[1];
-        let mybottom = this.props.position[1] + 39;
+        let mybottom = this.props.position[1] + 37;
         let otherleft = this.props.xPosition;
-        let otherright = this.props.xPosition + 39;
+        let otherright = this.props.xPosition + 37;
         let othertop = this.props.yPosition;
-        let otherbottom = this.props.yPosition + 39;
-        let crash = true;
+        let otherbottom = this.props.yPosition + 37;
+        let crash = false;
         if ((mybottom >= othertop ) &&
                (mytop <= otherbottom) &&
                (myright >= otherleft) &&
                (myleft <= otherright)) {
-           crash = false;
+           crash = true;
         }
 
-        if(crash === false){
+        if(crash === true){
             this.props.gameStatus()
-            console.log('playerleft:', myleft,'obstacleft', otherleft, 'playerright', myright, 'obstacright', otherright,'mytop', mytop,'obstactop', othertop,'mybottom', mybottom,'obstacbottom', otherbottom)
         }
     }
 
     componentDidUpdate(){
-        this.crashWith()
+       this.crashWith()
     }
     
 

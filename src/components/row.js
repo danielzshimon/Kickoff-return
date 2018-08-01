@@ -44,16 +44,13 @@ class Row extends Component {
     
 
     componentDidMount(){
-        this.setState({obstacles: this.createMultipleObstacles(this.generateRandomNumber(1, 15))});
+        this.setState({obstacles: this.createMultipleObstacles(this.generateRandomNumber(1, 12))});
         setInterval(() => {this.setState({
             yIndex: this.state.yIndex + 5
         })}, 50)
     }
 
-    // {setInterval(() => {
-    //     const previousPos = this.props.yPosition
-    //     this.props.movingBackground(previousPos)}, 50)
-
+    
     render(){ 
         
         return(
@@ -61,7 +58,7 @@ class Row extends Component {
                 position: 'absolute',
                 top: this.state.yIndex, 
                 height: '40px',
-                transition: 'all 0.01s ease'
+                
             }}
             >
            {this.state.obstacles.map( obstacle => {return <Obstacles xPosition={obstacle.xPosition} yPosition={this.state.yIndex}/>})}

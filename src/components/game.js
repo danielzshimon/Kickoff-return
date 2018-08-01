@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { addObstaclesToState, removeObstaclesFromState } from '../actions/index'
+import { addObstaclesToState, removeObstaclesFromState, resetGamePlayer, resetGameBackground, resetGameObstacles, resetGameStatus } from '../actions/index'
 import Player from './player'
 import Background from './background'
 import Row from './row';
@@ -16,53 +16,42 @@ class Game extends Component {
 
     }
 
-    // createMultipleRows = (times) => {
-    //     let arr = []
-    //     for(let i = 1; i <= times; i++){
-    //         arr.push(i)
-    //     }
-    //     return arr.map(() => this.createRow());
-        
-    // }    
-
-    crashWith = (obstacle) => {
-        let myleft = this.props.position[0];
-        let myright = this.props.position[0] + 40;
-        let mytop = this.props.position[1];
-        let mybottom = this.props.position[1] + 40;
-        let otherleft = obstacle.props.style.left;
-        let otherright = obstacle.props.style.left + 40;
-        let othertop = obstacle.props.style.top;
-        let otherbottom = obstacle.props.style.top + 40;
-        let crash = true;
-        if ((mybottom < othertop) ||
-               (mytop > otherbottom) ||
-               (myright < otherleft) ||
-               (myleft > otherright)) {
-           crash = false;
-        }
-        return crash;
-    }
-
-    componentDidMount(){
+    startGame = () => {
         let rowID = 1
-        setInterval(() => {
+        // let inter = (setInterval(() => this.props.removeObstaclesFromState(), 1500))
+        this.addObstacleInterval = setInterval(() => {
             this.props.addObstaclesToState(this.createRow(rowID))
             rowID++
         }, 1500);
-        setTimeout(() => setInterval(() => this.props.removeObstaclesFromState(), 1500), 5700)
+       setTimeout(() => this.removeObstacleInterval = setInterval(() => this.props.removeObstaclesFromState(), 1500), 5652)
     }
 
-    componentDidUpdate(){
+    resetGame = () => {
+        this.props.resetGameStatus();
+        this.props.resetGamePlayer();
+        this.props.resetGameObstacles();
+        this.props.resetGameBackground();
+    }
+
+    componentDidMount = () =>{
+        this.startGame()
+    }
+
+    componentDidUpdate() {
+        
         if (this.props.lose === true){
-            alert('you lose')
+            clearInterval(this.removeObstacleInterval);
+            clearInterval(this.addObstacleInterval);
+            alert(`Your final score is ${this.props.yPosition}`);
+            this.resetGame();
+                if (window.confirm('Play Again?')) {this.startGame()}
+            
+             
         }
     }
-
-
-
      
-     
+    
+
     render() {
     return (
         <div style={{
@@ -86,8 +75,9 @@ function mapStateToProps(state) {
     return {
         ...state.obstacles,
         ...state.player,
-        ...state.game
+        ...state.game,
+        ...state.background
     }
 }
 
-export default connect(mapStateToProps,{addObstaclesToState, removeObstaclesFromState})(Game);
+export default connect(mapStateToProps,{addObstaclesToState, removeObstaclesFromState, resetGamePlayer, resetGameBackground, resetGameObstacles, resetGameStatus})(Game);

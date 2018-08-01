@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Game from './components/game'
-// import Background from './components/background'
+import Score from './components/score'
 // import Player from './components/player'
 // import { Loop, Stage } from 'react-game-kit';
 
@@ -12,6 +12,9 @@ class App extends Component {
       <div className="App">
         <h1 align='center'> Football Game </h1>
         <Game />
+        <div align='center'>
+          <Score />
+        </div>
       </div>
     );
   }

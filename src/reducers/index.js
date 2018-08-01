@@ -1,6 +1,6 @@
 
 const initialPlayerState = {
-    position: [560, 560],
+    position: [580, 560]
 
 };
 
@@ -11,6 +11,10 @@ export const playerReducer = (state = initialPlayerState, action ) => {
             ...action.payload
         }
 
+        case 'RESET_GAME_PLAYER':
+        return {...state,
+            position: initialPlayerState.position
+        }
 
       default:
         return state    
@@ -30,9 +34,9 @@ export const backgroundReducer = (state = initialBackgroundState, action ) => {
             ...action.payload
         }
 
-        case 'STOP_BACKGROUND':
-        return { 
-            ...action.payload
+        case 'RESET_GAME_BACKGROUND':
+        return {...state,
+           yPosition: initialBackgroundState.yPosition
         }
 
 
@@ -62,6 +66,11 @@ export const obstacleReducer = (state = initialObstacleState, action ) => {
             obstaclesRowArr: [...newRows]
         }
 
+        case 'RESET_GAME_OBSTACLES':
+        return { ...state,
+            obstaclesRowArr: []
+        }
+
 
 
       default:
@@ -82,6 +91,11 @@ export const gameReducer = (state = initialGameState, action ) => {
         case 'LOSE_GAME':
         return { ...state,
             lose: true
+        }
+
+        case 'RESET_GAME':
+        return { ...state,
+            lose: false
         }
 
       default:

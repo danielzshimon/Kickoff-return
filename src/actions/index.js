@@ -1,4 +1,4 @@
-import { MOVE_PLAYER, MOVE_BACKGROUND, ADD_OBSTACLES, LOSE_GAME, REMOVE_OBSTACLES } from './types'
+import { MOVE_PLAYER, MOVE_BACKGROUND, ADD_OBSTACLES, LOSE_GAME, REMOVE_OBSTACLES, RESET_GAME_PLAYER, RESET_GAME_BACKGROUND, RESET_GAME, RESET_GAME_OBSTACLES } from './types'
 
 export function makeMove(position) {
    return {
@@ -35,26 +35,34 @@ export function movingBackground(yPosition) {
      }
  }
 
-//  export function moveObstacles(obstacleTop) {
-//     return {
-//          type: MOVE_OBSTACLES,
-//          payload: {
-//             obstacleTop: ( obstacleTop + 5)
-//          }
-//      }
-//  } 
 
-//  export function removeObstacles(obstacle) {
-//     return {
-//          type: REMOVE_OBSTACLES,
-//          payload: {
-//              obstaclesArr: []
-//          }
-//      }
-//  }
 
 export function gameStatus() {
     return {
          type: LOSE_GAME
      }
  } 
+
+ export function resetGamePlayer(){
+     return {
+        type: RESET_GAME_PLAYER
+     }
+ }
+
+ export function resetGameBackground(){
+    return {
+        type: RESET_GAME_BACKGROUND
+    }
+}
+
+export function resetGameObstacles(){
+    return {
+        type: RESET_GAME_OBSTACLES
+    }
+}
+
+export function resetGameStatus(){
+    return {
+        type: RESET_GAME
+    }
+}

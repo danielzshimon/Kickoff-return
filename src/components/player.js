@@ -28,13 +28,13 @@ class Player extends Component {
         const prevPosition =  this.props.position//where my issue is I want to grab props
         switch(direction){
             case 'LEFT':
-                return this.boundaries(prevPosition,[prevPosition[0] - 10, prevPosition[1]])
+                return this.boundaries(prevPosition,[prevPosition[0] - 9, prevPosition[1]])
             case 'RIGHT':
-                return this.boundaries(prevPosition,[prevPosition[0] + 10, prevPosition[1]])
+                return this.boundaries(prevPosition,[prevPosition[0] + 9, prevPosition[1]])
             case 'UP':
-                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] - 10])
+                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] - 9])
             case 'DOWN':
-                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] + 10])
+                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] + 9])
             default:
                 console.log('default')
         }
@@ -74,7 +74,7 @@ class Player extends Component {
                 height: '39px',
                 border: '1px solid white',
                 outline: 'none',
-                transition: 'all 0.1s ease'
+                
                 }}
                 onKeyDown={this.handleKeyDown}
                 tabIndex='0'
