@@ -5,6 +5,7 @@ import PlayGame from './components/playgame'
 import GameOver from './components/gameover'
 import { connect } from "react-redux";
 
+
 class App extends Component {
   
  
@@ -13,14 +14,15 @@ class App extends Component {
       <div className="App">
         {(this.props.gameStatus === 'playing') ?
         <div
->        <h1 align='center'> Game </h1>
-        <Game />
-        <div align='center'>
+>         <h1 align='center' > Game </h1>
+          <Game />
+          <div align='center'>
           <Score />
-        </div>
+          </div>
         </div> : 
         (this.props.gameStatus === 'lost') ?
-        < GameOver/> : <PlayGame /> }
+        <GameOver /> : 
+        <PlayGame /> }
       </div>
     );
   }

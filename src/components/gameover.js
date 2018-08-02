@@ -9,7 +9,6 @@ class GameOver extends Component{
         this.props.resetGameStatus();
         this.props.resetGamePlayer();
         this.props.resetGameObstacles();
-        
     }
 
     componentDidMount(){
@@ -31,7 +30,7 @@ class GameOver extends Component{
                 <button
                 onClick={this.props.startGame}
                 className="btn btn-success btn-lg"
-                    >Start Another Game </button>
+                    >Play Again? </button>
                 </p>
         </div>
     

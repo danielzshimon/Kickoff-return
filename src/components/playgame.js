@@ -1,24 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import { startGame } from '../actions/index'
-
+import { Button } from 'semantic-ui-react'
 
 const StartGame = (props) => {
     
     return (
-        <div className="text-center">
+        <div >
             <h1>Game</h1>
-            <p className="lead">
-            Arrow keys to move
-            </p>
-            <p>
-                <button
-                    onClick={props.startGame}
-                    className="btn btn-success btn-lg"
-                > Start Game </button>
-            </p>    
-        </div>
-       
+            <h2> USE THE ARROW KEYS TO MOVE </h2>
+            <Button inverted color='green' onClick={props.startGame}> Start Game </Button>   
+            
+       </div>
     );
   };
 

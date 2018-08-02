@@ -15,7 +15,7 @@ class Player extends Component {
     }
 
     boundaries(prevPosition, newPosition){
-         if ((newPosition[0] >= 0 && newPosition[0] <= 1160) &&
+         if ((newPosition[0] >= 0 && newPosition[0] <= 1169) &&
                (newPosition[1] >= 0 && newPosition[1] <= 560)){
                return newPosition 
         } else {
@@ -28,13 +28,13 @@ class Player extends Component {
         const prevPosition =  this.props.position//where my issue is I want to grab props
         switch(direction){
             case 'LEFT':
-                return this.boundaries(prevPosition,[prevPosition[0] - 9, prevPosition[1]])
+                return this.boundaries(prevPosition,[prevPosition[0] - 10, prevPosition[1]])
             case 'RIGHT':
-                return this.boundaries(prevPosition,[prevPosition[0] + 9, prevPosition[1]])
+                return this.boundaries(prevPosition,[prevPosition[0] + 10, prevPosition[1]])
             case 'UP':
-                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] - 9])
+                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] - 10])
             case 'DOWN':
-                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] + 9])
+                return this.boundaries(prevPosition,[prevPosition[0], prevPosition[1] + 10])
             default:
                 console.log('default')
         }

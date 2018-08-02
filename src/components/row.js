@@ -46,7 +46,7 @@ class Row extends Component {
     componentDidMount(){
         this.setState({obstacles: this.createMultipleObstacles(this.generateRandomNumber(1, 12))});
         setInterval(() => {this.setState({
-            yIndex: this.state.yIndex + 5
+            yIndex: this.state.yIndex + 7
         })}, 50)
     }
 

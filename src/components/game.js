@@ -23,7 +23,7 @@ class Game extends Component {
             this.props.addObstaclesToState(this.createRow(rowID))
             rowID++
         }, 1500);
-       setTimeout(() => (this.removeObstacleInterval = setInterval(() => this.props.removeObstaclesFromState(), 1500)), 5652)
+       setTimeout(() => (this.removeObstacleInterval = setInterval(() => this.props.removeObstaclesFromState(), 1500)), 4040)
     }
 
     // resetGame = () => {
@@ -52,8 +52,8 @@ class Game extends Component {
         <div style={{
             
             position: 'relative',
-            width: '1200px',
-            height: '600px',
+            width: '1208px',
+            height: '605px',
             margin: '20px auto', 
             border: '4px solid pink',
         }}

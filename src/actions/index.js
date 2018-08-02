@@ -13,7 +13,7 @@ export function movingBackground(yPosition) {
     return {
          type: MOVE_BACKGROUND,
          payload: {
-             yPosition: (yPosition + 5)
+             yPosition: (yPosition + 7)
          }
      }
  }
