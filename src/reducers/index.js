@@ -34,7 +34,7 @@ export const backgroundReducer = (state = initialBackgroundState, action ) => {
             ...action.payload
         }
 
-        case 'RESET_GAME_BACKGROUND':
+        case 'STOP_BACKGROUND':
         return {...state,
            yPosition: initialBackgroundState.yPosition
         }
@@ -83,7 +83,7 @@ export const obstacleReducer = (state = initialObstacleState, action ) => {
 const initialGameState = {
     win: false,
     lose: false,
-    score: 0
+    gameStatus: 'notPlaying'
 };
 
 export const gameReducer = (state = initialGameState, action ) => {
@@ -96,6 +96,17 @@ export const gameReducer = (state = initialGameState, action ) => {
         case 'RESET_GAME':
         return { ...state,
             lose: false
+        }
+
+        case 'START_GAME':
+        return {...state,
+            gameStatus:'playing'
+        }
+
+
+        case 'LOST_GAME':
+        return {...state,
+            gameStatus:'lost'
         }
 
       default:

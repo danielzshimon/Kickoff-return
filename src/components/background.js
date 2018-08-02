@@ -8,7 +8,7 @@ class Background extends Component {
  
   changeY = () => {
     
-      setInterval(() => {
+      this.backgroundInterval = setInterval(() => {
       const previousPos = this.props.yPosition
       this.props.movingBackground(previousPos)}, 50)
     
@@ -17,6 +17,10 @@ class Background extends Component {
 
   componentDidMount(){
     this.changeY()
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.backgroundInterval)
   }
 
 

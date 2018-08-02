@@ -23,33 +23,28 @@ class Game extends Component {
             this.props.addObstaclesToState(this.createRow(rowID))
             rowID++
         }, 1500);
-       setTimeout(() => this.removeObstacleInterval = setInterval(() => this.props.removeObstaclesFromState(), 1500), 5652)
+       setTimeout(() => (this.removeObstacleInterval = setInterval(() => this.props.removeObstaclesFromState(), 1500)), 5652)
     }
 
-    resetGame = () => {
-        this.props.resetGameStatus();
-        this.props.resetGamePlayer();
-        this.props.resetGameObstacles();
-        this.props.resetGameBackground();
-    }
+    // resetGame = () => {
+    //     this.props.resetGameStatus();
+    //     this.props.resetGamePlayer();
+    //     this.props.resetGameObstacles();
+    //     this.props.resetGameBackground();
+    // }
 
     componentDidMount = () =>{
         this.startGame()
     }
 
-    componentDidUpdate() {
+    componentWillUnmount = () => {
         
-        if (this.props.lose === true){
-            clearInterval(this.removeObstacleInterval);
-            clearInterval(this.addObstacleInterval);
-            alert(`Your final score is ${this.props.yPosition}`);
-            this.resetGame();
-                if (window.confirm('Play Again?')) {this.startGame()}
-            
-             
-        }
+        clearInterval(this.removeObstacleInterval);
+        clearInterval(this.addObstacleInterval);
+                    
     }
      
+
     
 
     render() {

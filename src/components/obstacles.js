@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { gameStatus } from '../actions/index'
+import { gameStatus, lostGame } from '../actions/index'
 
 
 
@@ -91,7 +91,8 @@ class Obstacles extends Component {
         }
 
         if(crash === true){
-            this.props.gameStatus()
+            
+            this.props.lostGame()
         }
     }
 
@@ -125,4 +126,4 @@ function mapStateToProps(state) {
 
 
 
-export default connect(mapStateToProps, { gameStatus })(Obstacles);
+export default connect(mapStateToProps, { gameStatus, lostGame })(Obstacles);
