@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-// import handleMovement  from '../actions/movement'
 import { makeMove } from '../actions/index'
+import football  from '../images/football.png'
 
 class Player extends Component {
   
@@ -16,7 +16,7 @@ class Player extends Component {
 
     boundaries(prevPosition, newPosition){
          if ((newPosition[0] >= 0 && newPosition[0] <= 1169) &&
-               (newPosition[1] >= 0 && newPosition[1] <= 560)){
+               (newPosition[1] >= 0 && newPosition[1] <= 530)){
                return newPosition 
         } else {
         return prevPosition
@@ -69,12 +69,11 @@ class Player extends Component {
                 position: 'absolute',
                 top: this.props.position[1],
                 left: this.props.position[0],
-                background: 'blue',
-                width: '39px',
-                height: '39px',
-                border: '1px solid white',
+                backgroundImage: `url(${football})`,
+                width: '40px',
+                height: '65px',
                 outline: 'none',
-                
+                backgroundSize: '100%'
                 }}
                 onKeyDown={this.handleKeyDown}
                 tabIndex='0'

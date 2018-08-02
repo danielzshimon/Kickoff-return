@@ -1,6 +1,6 @@
 
 const initialPlayerState = {
-    position: [580, 560]
+    position: [580, 530]
 
 };
 

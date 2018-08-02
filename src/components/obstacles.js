@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { gameStatus, lostGame } from '../actions/index'
-
+import obstacleSprite from '../images/obstaclesprite.png'
 
 
 class Obstacles extends Component {
@@ -20,7 +20,7 @@ class Obstacles extends Component {
         const obstacle = <div  
         style={{position: 'absolute', 
         left: this.generateRandomNumber(0, 1160), 
-        background: 'red', 
+        backgroundImage: `url(${obstacleSprite})`, 
         width: '39px', 
         height: '39px', 
         border: '1px solid white'
@@ -75,13 +75,13 @@ class Obstacles extends Component {
 
     crashWith = () => {
         let myleft = this.props.position[0];
-        let myright = this.props.position[0] + 37;
+        let myright = this.props.position[0] + 39;
         let mytop = this.props.position[1];
-        let mybottom = this.props.position[1] + 37;
+        let mybottom = this.props.position[1] + 64;
         let otherleft = this.props.xPosition;
-        let otherright = this.props.xPosition + 37;
+        let otherright = this.props.xPosition + 52;
         let othertop = this.props.yPosition;
-        let otherbottom = this.props.yPosition + 37;
+        let otherbottom = this.props.yPosition + 63;
         let crash = false;
         if ((mybottom >= othertop ) &&
                (mytop <= otherbottom) &&
@@ -106,10 +106,10 @@ class Obstacles extends Component {
             <div  
             style={{position: 'absolute', 
             left: this.props.xPosition, 
-            background: 'red', 
-            width: '39px', 
-            height: '39px', 
-            border: '1px solid white'
+            backgroundImage: `url(${obstacleSprite})`, 
+            backgroundPosition: '-7px -2px',
+            width: '53px', 
+            height: '66px'
             }}
             />
     );

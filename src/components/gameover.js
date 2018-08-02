@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { startGame, resetGameStatus, resetGamePlayer, resetGameObstacles, stopBackground} from '../actions/index'
+import { Button } from 'semantic-ui-react'
 
 
 class GameOver extends Component{
@@ -22,15 +23,15 @@ class GameOver extends Component{
     render(){
         return (
             
-        <div className="text-center">
+        <div align='center' >
             <h1>You Lose</h1>
             <h2> {`Final Score ${this.props.yPosition}`}</h2>
-            <p className="lead"></p>
+            
             <p>
-                <button
+                <Button
+                inverted color='purple'
                 onClick={this.props.startGame}
-                className="btn btn-success btn-lg"
-                    >Play Again? </button>
+                    >Play Again? </Button>
                 </p>
         </div>
     
