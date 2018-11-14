@@ -24,8 +24,8 @@ class GameOver extends Component{
         return (
             
         <div align='center' style={{
-            position: 'relative',
-            width: '120px',
+    
+            width: '240px',
             border: '2px solid black',
         }} >
             <h1>Game Over!</h1>
