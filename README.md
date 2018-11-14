@@ -11,4 +11,4 @@ Kickoff Return is a game created for anyone who likes games.  You use the arrow 
 
 
 
-## Created using React, Redux, JavaScript, HTML and CSS
+### Created using React, Redux, JavaScript, HTML and CSS
