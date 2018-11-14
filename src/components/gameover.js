@@ -23,15 +23,18 @@ class GameOver extends Component{
     render(){
         return (
             
-        <div align='center' >
-            <h1>You Lose</h1>
+        <div align='center' style={{
+             
+            border: '4px solid black',
+        }} >
+            <h1>Game Over!</h1>
             <h2> {`Final Score ${this.props.yPosition}`}</h2>
             
             <p>
                 <Button
                 inverted color='purple'
                 onClick={this.props.startGame}
-                    >Play Again? </Button>
+                    >Try and beat your score? </Button>
                 </p>
         </div>
     

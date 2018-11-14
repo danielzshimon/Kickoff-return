@@ -14,7 +14,7 @@ class App extends Component {
       <div className="App">
         {(this.props.gameStatus === 'playing') ?
         <div
->         <h1 align='center' > Game </h1>
+>         <h1 align='center' > Kickoff Return </h1>
           <Game />
           <div align='center'>
           <Score />
