@@ -1,8 +1,8 @@
-#**Kickoff Return**
+# Kickoff Return**
 
 Kickoff Return is a game created for anyone who likes games.  You use the arrow keys to move the football and get out of the way of any oncoming players.
 
-#**Installation**
+# Installation 
 
 1. Clone or download Kickoff Return.
 2. Navigate to Kickoff Returns's folder in Terminal
@@ -11,4 +11,4 @@ Kickoff Return is a game created for anyone who likes games.  You use the arrow 
 
 
 
-##Created using React, Redux, JavaScript, HTML and CSS
+## Created using React, Redux, JavaScript, HTML and CSS
