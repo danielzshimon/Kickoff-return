@@ -23,11 +23,7 @@ class GameOver extends Component{
     render(){
         return (
             
-        <div align='center' style={{
-    
-            width: '240px',
-            border: '2px solid black',
-        }} >
+        <div align='center'  >
             <h1>Game Over!</h1>
             <h2> {`Final Score ${this.props.yPosition}`}</h2>
             
