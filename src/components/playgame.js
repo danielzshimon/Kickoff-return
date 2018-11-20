@@ -13,14 +13,15 @@ const StartGame = (props) => {
          }}>
             <div align='center' position='center' style={{
             position: 'center',
-            width: '420px',
+            width: '620px',
+            padding: '30px',
             border: '2px solid pink',
             backgroundColor: 'white',
             display: 'inline-block',
             margin: '100px'
             }}>
-                <h2>Endless Kickoff Return</h2>
-                <h3> USE THE ARROW KEYS TO MOVE </h3>
+                <h1>Endless Kickoff Return</h1>
+                <h2> USE THE ARROW KEYS TO MOVE </h2>
                 <h3>LOSE WHEN YOU HIT AN OPPOSING PLAYER</h3>
                 <Button inverted color='green' onClick={props.startGame}> Start Game </Button>   
             </div>
