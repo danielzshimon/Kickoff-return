@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { startGame, resetGameStatus, resetGamePlayer, resetGameObstacles, stopBackground} from '../actions/index'
 import { Button } from 'semantic-ui-react'
+import grass_2 from '../images/grass_2.png'
 
 
 class GameOver extends Component{
@@ -23,7 +24,19 @@ class GameOver extends Component{
     render(){
         return (
             
-        <div align='center'  >
+            <div  style= {{backgroundImage: `url(${grass_2})`,
+            height: '1000px',
+            textAlign:'center'
+             }}>
+                <div align='center' position='center' style={{
+                position: 'center',
+                width: '620px',
+                padding: '30px',
+                border: '2px solid pink',
+                backgroundColor: 'white',
+                display: 'inline-block',
+                margin: '100px'
+                }}>
             <h1>Game Over!</h1>
             <h2> {`Final Score ${this.props.yPosition}`}</h2>
             
@@ -33,6 +46,7 @@ class GameOver extends Component{
                 onClick={this.props.startGame}
                     >Try and beat your score? </Button>
                 </p>
+            </div>
         </div>
     
     )}
