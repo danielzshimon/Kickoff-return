@@ -36,6 +36,7 @@ class Background extends Component {
             width: '1200px',
             height: '1100px',
             backgroundImage: `url(${grass_2})`,
+            transitionTimingFunction: 'ease-in-out',
             maxHeight: '100%',
             backgroundPositionY: this.props.yPosition             
         }}/>

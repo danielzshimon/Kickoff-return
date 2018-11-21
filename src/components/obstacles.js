@@ -23,7 +23,8 @@ class Obstacles extends Component {
         backgroundImage: `url(${obstacleSprite})`, 
         width: '39px', 
         height: '39px', 
-        border: '1px solid white'
+        border: '1px solid white',
+        transitionTimingFunction: 'ease-in-out'
         }}
         />
 
