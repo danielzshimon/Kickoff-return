@@ -25,7 +25,7 @@ class GameOver extends Component{
         return (
             
             <div  style= {{backgroundImage: `url(${grass_2})`,
-            height: '1000px',
+            height: '810px',
             textAlign:'center'
              }}>
                 <div align='center' position='center' style={{
@@ -33,6 +33,7 @@ class GameOver extends Component{
                 width: '620px',
                 padding: '30px',
                 border: '2px solid pink',
+                boxShadow: '10px 5px 5px red',
                 backgroundColor: 'white',
                 display: 'inline-block',
                 margin: '100px'

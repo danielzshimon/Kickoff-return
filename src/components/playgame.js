@@ -8,7 +8,7 @@ const StartGame = (props) => {
     
     return (
         <div  style= {{backgroundImage: `url(${grass_2})`,
-        height: '1000px',
+        height: '810px',
         textAlign:'center'
          }}>
             <div align='center' position='center' style={{
