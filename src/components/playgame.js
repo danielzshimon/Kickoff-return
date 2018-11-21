@@ -16,6 +16,7 @@ const StartGame = (props) => {
             width: '620px',
             padding: '30px',
             border: '2px solid pink',
+            boxShadow: '10px 5px 5px red',
             backgroundColor: 'white',
             display: 'inline-block',
             margin: '100px'
