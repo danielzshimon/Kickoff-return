@@ -6,14 +6,7 @@ import obstacleSprite from '../images/obstaclesprite.png'
 
 class Obstacles extends Component {
   
-    // constructor(){
-    //     super()
-
-    //     this.state = {
-    //         position: 0
-    //     }
-    // }
-    //add obstacles to the array
+   
     generateRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
     createObstacle = () => {
@@ -31,17 +24,6 @@ class Obstacles extends Component {
         return obstacle
     }
 
-    // <div style={{position: 'absolute', top: 0, left: this.generateRandomNumber(0, 1160), background: 'red', width: '40px', height: '40px'}}/>
-    // <div style={{
-    //     position: 'absolute', 
-    //     top: 0,
-    //     left: this.generateRandomNumber(0, 1160), 
-    //     background: 'red', 
-    //     width: '40px', 
-    //     height: '40px'
-    // }}
-    // />
-
 
     createMultipleObstacles = (times) => {
         let arr = []
@@ -52,27 +34,6 @@ class Obstacles extends Component {
         
     }
 
-    // changeTopOfObstacle = () => {
-    //     setInterval(() => {
-    //         const previousPos = this.props.obstacleTop
-    //         this.props.moveObstacles(previousPos)}, 50)
-    // }
-    //     const previousPos = document.getElementById('obstacle').style.top; 
-    //     setInterval(() => {
-         
-    //         previousPos += 10
-    //   }, 50)}
-    // changeY = () => {
-    //     setInterval(() => {
-    //       const previousPos = this.props.yPosition
-    //       this.props.movingBackground(previousPos)}, 50)
-    //   }
- 
-    
-    //when obstacle are out of the game area or get to the bottom of the game area remove them from them from the array
-    //top: 600 is out of the area
-  
-    
 
     crashWith = () => {
         let myleft = this.props.position[0];
