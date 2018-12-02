@@ -24,8 +24,8 @@ class Player extends Component {
     }
 
      getNewPosition = (direction) => {
-        // const playerSize = 40;
-        const prevPosition =  this.props.position//where my issue is I want to grab props
+        
+        const prevPosition =  this.props.position
         switch(direction){
             case 'LEFT':
                 return this.boundaries(prevPosition,[prevPosition[0] - 10, prevPosition[1]])
@@ -61,7 +61,7 @@ class Player extends Component {
         }
     }
 
-    //creat lose situation where if player = same spot as obsticle board stope and player cant move anymore
+    
   
     render() {
         return (
@@ -82,7 +82,6 @@ class Player extends Component {
     );
   }
 }
-
 
 
 function mapStateToProps(state) {
