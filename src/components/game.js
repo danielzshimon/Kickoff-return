@@ -7,10 +7,6 @@ import Row from './row';
 
 class Game extends Component {
  
-    // if player and obstacles hit eac other stop the game 
-
-    //figure out scoring
-
     createRow = (rowID) => {
         return <Row key={rowID}/> 
 
@@ -18,7 +14,7 @@ class Game extends Component {
 
     startGame = () => {
         let rowID = 1
-        // let inter = (setInterval(() => this.props.removeObstaclesFromState(), 1500))
+        
         this.addObstacleInterval = setInterval(() => {
             this.props.addObstaclesToState(this.createRow(rowID))
             rowID++
@@ -26,12 +22,7 @@ class Game extends Component {
        setTimeout(() => (this.removeObstacleInterval = setInterval(() => this.props.removeObstaclesFromState(), 1500)), 3850)
     }
 
-    // resetGame = () => {
-    //     this.props.resetGameStatus();
-    //     this.props.resetGamePlayer();
-    //     this.props.resetGameObstacles();
-    //     this.props.resetGameBackground();
-    // }
+   
 
     componentDidMount = () =>{
         this.startGame()
